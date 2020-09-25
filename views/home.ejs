@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+
+<div class="jumbotron centered">
+  <div class="container">
+    <i class="fas fa-sign-in-alt fa-6x"></i>
+    <h1 class="display-3">Login Screen</h1>
+    <p class="lead">Theres a secret on the other side</p>
+    <hr>
+    <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
+    <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+    <h1 class="explanations_header">Explanation</h1>
+    <div class="explanation">
+      <p>In this project I created a login screen. You can try it out by first registering using an email and password.
+        Then it
+        encrypts your password using a hashing and salting algorithm. Afterwards, the email and password is stored on an
+        online MongoDB server which I created for this app. The beauty of the encryption algorithm is that when you make
+        a password
+        and on this website, even I as an admin, cannot access the decrypted password. This is a very powerful and
+        modern technique
+        in cryptography and is used in banking, defence and cybersecurity industries.
+      </p>
+      <p>As a demonstration, here are all the used emails and hashed passwords. As you can see, even the admin cannot see the
+        real password, only the emails are known to the admin.
+      </p>
+      <table class="table">
+        <tr>
+          <th>Email</th>
+          <th>Hashed Password</th>
+        </tr>
+        <% users.forEach(function(item){ %>
+        <tr>
+          <td><%=  item.username  %></td>
+          <td><%=  item._id  %></td>
+        </tr>
+        <% }) %>
+      </table>
+      <p>P.S. This table wouldn't be shown in a real website. It's just for demonstration purposes</p>
+
+
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
